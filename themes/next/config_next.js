@@ -1,7 +1,7 @@
 const CONFIG_NEXT = {
 
   HOME_BANNER: false, // 首页是否显示大图及标语 [true,false]
-  HOME_BANNER_Strings: ['Hi，我是一个程序员', 'Hi，我是一个打工人', 'Hi，我是一个干饭人', '欢迎来到我的博客🎉'], // 首页大图标语文字
+  HOME_BANNER_Strings: ['你好，我是塵世迷途小碼農', '歡迎來到我的部落格🎉', '本站好記網址 uwaylu.cf', 'uwaylu for your confer'], // 首页大图标语文字
   HOME_BANNER_IMAGE: './bg_image.jpg', // 背景图地址
 
   NAV_TYPE: 'normal', // ['fixed','autoCollapse','normal'] 分别是固定屏幕顶部、屏幕顶部自动折叠，不固定
@@ -27,7 +27,7 @@ const CONFIG_NEXT = {
   MENU_SEARCH: true, // 显示搜索
 
   // 悬浮挂件
-  WIDGET_PET: false, // 是否显示宠物挂件
+  WIDGET_PET: true, // 是否显示宠物挂件
   WIDGET_PET_LINK: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json', // 挂件模型地址 @see https://github.com/xiazeyu/live2d-widget-models
   WIDGET_TO_TOP: true, // 是否显示回顶
   WIDGET_TO_BOTTOM: false, // 显示回底
