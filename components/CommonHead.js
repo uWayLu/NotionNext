@@ -42,7 +42,7 @@ const CommonHead = ({ meta, children }) => {
       </>
     )}
     {/* 谷歌字体镜像 */}
-    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet"/>
     {children}
   </Head>
 }
