@@ -10,7 +10,6 @@ export function ThemeSwitch () {
   const GlobalConfig = useGlobal()
   const router = useRouter()
   const { theme, setTheme, locale } = GlobalConfig
-  console.log 
   const themeOptions = []
   ALL_THEME.forEach(t => {
     themeOptions.push({ value: t, text: t })
@@ -33,7 +32,7 @@ export function ThemeSwitch () {
     <div draggable="true" className="fixed left-4 bottom-12 text-white bg-black rounded z-50">
       <div className="p-2 cursor-pointer" onClick={switchTheme}>
         <i className="fas fa-sync mr-1" />
-        {theme.toUpperCase()} | {locale.COMMON.SWITCH_THEME} 
+        {theme.toUpperCase()} | {locale.COMMON.SWITCH_THEME}
       </div>
     </div>
   )
