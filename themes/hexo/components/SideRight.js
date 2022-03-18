@@ -4,48 +4,18 @@ import LatestPostsGroup from './LatestPostsGroup'
 import TagGroups from './TagGroups'
 import Catalog from './Catalog'
 import { InfoCard } from './InfoCard'
+import { AnalyticsCard } from './AnalyticsCard'
 
 export default function SideRight (props) {
   const {
-    post,
-    postCount,
-    currentCategory,
-    categories,
-    latestPosts,
-    tags,
-    currentTag,
-    showCategory,
-    showTag
+    post, currentCategory, categories, latestPosts, tags,
+    currentTag, showCategory, showTag, slot
   } = props
 
   return (
-    <div className={'w-80 space-y-4 hidden lg:block'}>
+    <div className={'md:w-80 p-2 space-y-4'}>
       <InfoCard {...props}/>
-      <Card>
-        <div className='ml-2 mb-3 font-sans'>
-          <i className='fas fa-chart-area' /> 统计
-        </div>
-        <div className='text-xs font-sans font-light justify-center mx-7'>
-          <div className='inline'>
-            <div className='flex justify-between'>
-              <div>文章数:</div>
-              <div>{postCount}</div>
-            </div>
-          </div>
-          <div className='hidden busuanzi_container_page_pv ml-2'>
-            <div className='flex justify-between'>
-              <div>访问量:</div>
-              <div className='busuanzi_value_page_pv' />
-            </div>
-          </div>
-          <div className='hidden busuanzi_container_site_uv ml-2'>
-            <div className='flex justify-between'>
-              <div>访客数:</div>
-              <div className='busuanzi_value_site_uv' />
-            </div>
-          </div>
-        </div>
-      </Card>
+      <AnalyticsCard {...props}/>
 
       {showCategory && (
         <Card>
@@ -67,11 +37,13 @@ export default function SideRight (props) {
         <LatestPostsGroup posts={latestPosts} />
       </Card>}
 
-      {post && post.toc && (
-        <Card className='sticky top-12'>
+      <div className='sticky top-20'>
+       {post && post.toc && <Card>
           <Catalog toc={post.toc} />
-        </Card>
-      )}
+        </Card>}
+        {slot}
+      </div>
+
     </div>
   )
 }

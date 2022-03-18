@@ -7,6 +7,7 @@ import SideRight from './components/SideRight'
 import TopNav from './components/TopNav'
 import smoothscroll from 'smoothscroll-polyfill'
 import FloatDarkModeButton from './components/FloatDarkModeButton'
+import Live2D from '@/components/Live2D'
 
 /**
  * 基础布局 采用左右两侧布局，移动端使用顶部导航栏
@@ -17,7 +18,8 @@ import FloatDarkModeButton from './components/FloatDarkModeButton'
 const LayoutBase = (props) => {
   const { children, headerSlot, floatSlot, meta } = props
   const [show, switchShow] = useState(false)
-  const [percent, changePercent] = useState(0) // 页面阅读百分比
+  // const [percent, changePercent] = useState(0) // 页面阅读百分比
+  const rightAreaSlot = <Live2D/>
 
   const scrollListener = () => {
     const targetRef = document.getElementById('wrapper')
@@ -31,7 +33,7 @@ const LayoutBase = (props) => {
     if (shouldShow !== show) {
       switchShow(shouldShow)
     }
-    changePercent(per)
+    // changePercent(per)
   }
   useEffect(() => {
     smoothscroll.polyfill()
@@ -45,21 +47,21 @@ const LayoutBase = (props) => {
 
     {headerSlot}
 
-    <main id='wrapper' className='flex w-full justify-center py-8 min-h-screen'>
+    <main id='wrapper' className='w-full justify-center py-8 min-h-screen'>
 
-      <div id='container-inner' className='pt-14 w-full mx-auto flex justify-between space-x-4 max-w-7xl'>
+      <div id='container-inner' className='pt-14 w-full mx-auto lg:flex justify-between md:space-x-4 max-w-7xl'>
         <div className='flex-grow w-full'>{children}</div>
-        <SideRight {...props}/>
+        <SideRight {...props} slot={rightAreaSlot}/>
       </div>
 
     </main>
 
      {/* 右下角悬浮 */}
-     <div className='bottom-12 right-0 fixed justify-end z-20 font-sans'>
-        <div className={(show ? 'animate__animated ' : 'hidden') + ' animate__fadeInUp  justify-center duration-500  animate__faster flex flex-col items-center cursor-pointer '}>
+     <div className='bottom-12 right-1 fixed justify-end z-20 font-sans text-white bg-blue-400 rounded'>
+        <div className={(show ? 'animate__animated ' : 'hidden') + ' animate__fadeInUp justify-center duration-300  animate__faster flex flex-col items-center cursor-pointer '}>
           <FloatDarkModeButton/>
           {floatSlot}
-          <JumpToTopButton percent={percent}/>
+          <JumpToTopButton/>
         </div>
       </div>
 
